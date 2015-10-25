@@ -1,0 +1,7 @@
+{
+    "name": "motlocity/babel95",
+    "description": "BABEL95",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    }
+}
