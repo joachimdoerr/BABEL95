@@ -4,6 +4,7 @@ require __DIR__."/../vendor/autoload.php";
 
 $core=new \Moltocity\BABEL95\Core();
 
+
 try{
     $username=isset($_GET['username'])?$_GET['username']:'anonym';
     $message=isset($_GET['message'])?$_GET['message']:'';
@@ -21,11 +22,10 @@ try{
 }
 
 function sendResponse($code, $message, $header){
-    $header=array_merge($header, array('Content-Type'=>'application/json'));
+    $header=array_merge($header, array('Content-Type'=>'application/json', 'status' => $code));
     foreach($header as $key => $value){
         header("$key: $value");
     }
-    http_response_code($code);
     echo json_encode($message);
 }
 
