@@ -6,11 +6,11 @@ $core=new \Moltocity\BABEL95\Core();
 
 
 try{
-    $username=isset($_GET['username'])?$_GET['username']:'anonym';
-    $message=isset($_GET['message'])?$_GET['message']:'';
+    //TODO no validation here...
+    $message=json_decode(file_get_contents("php://input"), true);
     sendResponse(
         200,
-        $core->receiveMessage($username, $message),
+        $core->receiveMessage($message),
         array()
     );
 }catch(\Moltocity\BABEL95\BabelException $e){

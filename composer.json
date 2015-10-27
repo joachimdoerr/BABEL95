@@ -3,5 +3,8 @@
     "description": "BABEL95",
     "autoload": {
         "psr-0": { "": "src/" }
+    },
+    "require": {
+        "pusher/pusher-php-server": "^2.2"
     }
 }
