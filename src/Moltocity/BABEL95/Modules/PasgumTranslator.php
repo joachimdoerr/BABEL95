@@ -9,6 +9,7 @@
 namespace Moltocity\BABEL95\Modules;
 
 
-class PasgumTranslator {
+class PasgumTranslator extends LanguageTranslater
+{
 
-} 
+}

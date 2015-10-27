@@ -9,6 +9,10 @@
 namespace Moltocity\BABEL95;
 
 
+use Moltocity\BABEL95\Modules\AvatarService;
+use Moltocity\BABEL95\Modules\LanguageTranslater;
+use Moltocity\BABEL95\Modules\PasgumTranslator;
+
 class Core {
 
     const APP_KEY="d481e13343c7bb89d0d1";
@@ -20,9 +24,16 @@ class Core {
 
     public function receiveMessage($message){
 
+        // Translatings
+        $languageTranslate = new LanguageTranslater("url",$message->body);
+
+        $pasgumTranslate = new PasgumTranslator("url",$languageTranslate->getTranslatedMessage());
+
+        $avatarService = new AvatarService($message->actor->displayName);
+
         //TODO Hack here! For now we simply echo around
         $sender=new MessageSender(self::APP_KEY, self::APP_SECRET, self::APP_ID);
-        $sender->sendMessage($message);
+        $sender->sendMessage($pasgumTranslate->getTranslatedMessage());
         return $message;
     }
 

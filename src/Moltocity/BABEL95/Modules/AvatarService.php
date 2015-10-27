@@ -9,6 +9,25 @@
 namespace Moltocity\BABEL95\Modules;
 
 
-class AvatarService {
+class AvatarService
+{
+    public $userName;
+    public $imageUrl;
 
-} 
+    /**
+     * AvatarService constructor.
+     * @param $userName
+     */
+    public function __construct($userName)
+    {
+        $this->userName = $userName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageUrl()
+    {
+        return $this->imageUrl;
+    }
+}

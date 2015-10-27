@@ -9,6 +9,7 @@
 namespace Moltocity\BABEL95\Modules;
 
 
-class MessageSender {
+class MessageSender
+{
 
 } 
